@@ -1,4 +1,7 @@
 package com.example.binarchallange3.utils
 
-class OnItemClickCallback {
+import com.example.binarchallange3.AlphabetModel
+
+interface OnItemClickCallback{
+    fun onItemClicked(list: Array<String>)
 }
