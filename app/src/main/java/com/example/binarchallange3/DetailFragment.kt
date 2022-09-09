@@ -3,8 +3,11 @@ package com.example.binarchallange3
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binarchallange3.databinding.FragmentDetailBinding
@@ -21,6 +24,7 @@ class DetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -36,6 +40,15 @@ class DetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // handle the up button here
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            requireView().findNavController()
+        )
+                || super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
