@@ -3,17 +3,14 @@ package com.example.binarchallange3
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.binarchallange3.adapter.AlphabetAdapter
 import com.example.binarchallange3.adapter.WordAdapter
 import com.example.binarchallange3.databinding.FragmentDetailBinding
 
-class DetailFragment : Fragment() {
+class DetailFragment(private val list: ArrayList<String>) : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding as FragmentDetailBinding
@@ -31,24 +28,15 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = arguments?.getStringArray(AlphabetAdapter.EXTRA_ALPHABET)
+        //val data = arguments?.getStringArrayList(AlphabetAdapter.EXTRA_ALPHABET)
 
         ///val mData = DetailFragmentArgs.fromBundle(arguments as Bundle).name
 
         binding.rcvWords.apply {
-            adapter = data?.let { WordAdapter(it) }
+            adapter = WordAdapter(list)
             layoutManager = LinearLayoutManager(activity)
         }
 
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // handle the up button here
-        return NavigationUI.onNavDestinationSelected(
-            item,
-            requireView().findNavController()
-        )
-                || super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {

@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binarchallange3.databinding.ItemViewBinding
 
-class WordAdapter(private val list: Array<String>): RecyclerView.Adapter<WordAdapter.CardViewHolder>() {
+class WordAdapter(private val list: ArrayList<String>) :
+    RecyclerView.Adapter<WordAdapter.CardViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CardViewHolder(binding)
@@ -24,8 +25,9 @@ class WordAdapter(private val list: Array<String>): RecyclerView.Adapter<WordAda
 
     override fun getItemCount() = list.size
 
-    class CardViewHolder(private val binding: ItemViewBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(list: Array<String>){
+    class CardViewHolder(private val binding: ItemViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(list: ArrayList<String>) {
             binding.apply {
                 btnText.text = list[position]
             }

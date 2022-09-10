@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.binarchallange3.DetailFragment
+import com.example.binarchallange3.MainActivity
 import com.example.binarchallange3.R
 import com.example.binarchallange3.databinding.ItemViewBinding
 import com.example.binarchallange3.model.AlphabetModel
@@ -21,6 +23,11 @@ class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(list: AlphabetModel) {
             binding.btnText.text = list.alphabet
+
+            binding.btnText.setOnClickListener {
+                val activity = itemView.context as MainActivity
+                activity.setWordFragment(DetailFragment(list.word))
+            }
         }
     }
 
@@ -35,11 +42,6 @@ class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         // onItemClicked?.let { holder.bind(list[position], it) }
         holder.bind(list[position])
-        holder.itemView.setOnClickListener {
-            val mBundle = Bundle()
-//            val dataParsing = AlphabetModel(EXTRA_ALPHABET)
-//            mBundle.putParcelableArray(EXTRA_ALPHABET, dataParsing)
-        }
     }
 
     fun setOnClickCallback(onItemClicked: OnItemClickCallback){

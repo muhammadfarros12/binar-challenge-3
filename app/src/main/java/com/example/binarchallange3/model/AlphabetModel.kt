@@ -6,19 +6,19 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AlphabetModel(
     val alphabet:String,
-    val word: Array<String>,
+    val word: ArrayList<String>,
 
 ): Parcelable
 
 val list = arrayListOf(
-    AlphabetModel("A", arrayOf("apple", "apa", "appa")),
-    AlphabetModel("B", arrayOf("Bajing", "Bagong", "Banjar")),
-    AlphabetModel("C", arrayOf("Cicak", "Cangkuang", "Cakwe")),
-    AlphabetModel("E", arrayOf("Elang", "Enggrang", "Edge")),
-    AlphabetModel("D", arrayOf("Dapur", "Data", "Dataran")),
-    AlphabetModel("F", arrayOf("Faputa", "Flaminggo", "Fukouka")),
-    AlphabetModel("G", arrayOf("Good Game", "Gala", "Gapura")),
-    AlphabetModel("H", arrayOf("Hiu", "Haus", "Hampura")),
-    AlphabetModel("I", arrayOf("Ikan", "Iodium", "IPA")),
-    AlphabetModel("J", arrayOf("Jack Sparrow", "Jakarta", "JIS")),
+    AlphabetModel("A", arrayListOf("apple", "apa", "appa")),
+    AlphabetModel("B", arrayListOf("Bajing", "Bagong", "Banjar")),
+    AlphabetModel("C", arrayListOf("Cicak", "Cangkuang", "Cakwe")),
+    AlphabetModel("E", arrayListOf("Elang", "Enggrang", "Edge")),
+    AlphabetModel("D", arrayListOf("Dapur", "Data", "Dataran")),
+    AlphabetModel("F", arrayListOf("Faputa", "Flaminggo", "Fukouka")),
+    AlphabetModel("G", arrayListOf("Good Game", "Gala", "Gapura")),
+    AlphabetModel("H", arrayListOf("Hiu", "Haus", "Hampura")),
+    AlphabetModel("I", arrayListOf("Ikan", "Iodium", "IPA")),
+    AlphabetModel("J", arrayListOf("Jack Sparrow", "Jakarta", "JIS")),
 )

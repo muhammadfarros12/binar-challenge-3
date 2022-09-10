@@ -3,6 +3,7 @@ package com.example.binarchallange3
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import com.example.binarchallange3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(binding.root)
+    }
+
+    fun setWordFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragmentContainerView, fragment).commit()
+            addToBackStack(null)
+        }
     }
 
     override fun onDestroy() {
