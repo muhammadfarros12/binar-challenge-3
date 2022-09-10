@@ -51,8 +51,8 @@ class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
 
     override fun getItemCount() = list.size
 
-    companion object {
-        val EXTRA_ALPHABET = "extra_alphabet"
-    }
+//    companion object {
+//        val EXTRA_ALPHABET = "extra_alphabet"
+//    }
 
 }
