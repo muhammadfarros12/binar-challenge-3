@@ -31,12 +31,12 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // val data = arguments?.getStringArray(AlphabetAdapter.EXTRA_ALPHABET)
+        val data = arguments?.getStringArray(AlphabetAdapter.EXTRA_ALPHABET)
 
-        val mData = DetailFragmentArgs.fromBundle(arguments as Bundle).name
+        ///val mData = DetailFragmentArgs.fromBundle(arguments as Bundle).name
 
         binding.rcvWords.apply {
-            adapter = WordAdapter(mData)
+            adapter = data?.let { WordAdapter(it) }
             layoutManager = LinearLayoutManager(activity)
         }
 

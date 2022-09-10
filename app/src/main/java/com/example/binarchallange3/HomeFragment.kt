@@ -32,16 +32,15 @@ class HomeFragment : Fragment() {
         binding.rcvAlphabet.apply {
             layoutManager = LinearLayoutManager(activity)
 
-            val mAdapter = AlphabetAdapter(list)
-            adapter = mAdapter
-            mAdapter.setOnClickCallback(object :OnItemClickCallback{
-                override fun onItemClicked(list: Array<String>) {
-                    val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(list)
-                    view.findNavController().navigate(action)
-                }
-
-
-            })
+            adapter = AlphabetAdapter(list)
+//            mAdapter.setOnClickCallback(object :OnItemClickCallback{
+//                override fun onItemClicked(list: Array<String>) {
+//                    val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(list)
+//                    view.findNavController().navigate(action)
+//                }
+//
+//
+//            })
 
         }
 
