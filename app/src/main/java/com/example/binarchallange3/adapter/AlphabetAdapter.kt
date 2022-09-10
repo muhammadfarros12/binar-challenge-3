@@ -1,11 +1,13 @@
-package com.example.binarchallange3
+package com.example.binarchallange3.adapter
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.binarchallange3.R
 import com.example.binarchallange3.databinding.ItemViewBinding
+import com.example.binarchallange3.model.AlphabetModel
 import com.example.binarchallange3.utils.OnItemClickCallback
 
 class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
@@ -17,31 +19,27 @@ class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
 
     class CardViewHolder(private val binding: ItemViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(list: AlphabetModel, onItemClicked: OnItemClickCallback) {
+        fun bind(list: AlphabetModel) {
             binding.btnText.text = list.alphabet
-
-            binding.btnText.setOnClickListener {
-                onItemClicked.onItemClicked(list.word)
-            }
-
         }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AlphabetAdapter.CardViewHolder {
+    ): CardViewHolder {
         val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CardViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: AlphabetAdapter.CardViewHolder, position: Int) {
-        onItemClicked?.let { holder.bind(list[position], it) }
-//        holder.itemView.setOnClickListener {
-//            val mBundle = Bundle()
-//            mBundle.putStringArray(EXTRA_ALPHABET, list[position].word)
-//            it.findNavController().navigate(R.id.action_homeFragment_to_detailFragment, mBundle)
-//        }
+    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
+        // onItemClicked?.let { holder.bind(list[position], it) }
+        holder.bind(list[position])
+        holder.itemView.setOnClickListener {
+            val mBundle = Bundle()
+//            val dataParsing = AlphabetModel(EXTRA_ALPHABET)
+//            mBundle.putParcelableArray(EXTRA_ALPHABET, dataParsing)
+        }
     }
 
     fun setOnClickCallback(onItemClicked: OnItemClickCallback){

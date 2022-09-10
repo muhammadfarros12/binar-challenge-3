@@ -1,4 +1,4 @@
-package com.example.binarchallange3
+package com.example.binarchallange3.adapter
 
 import android.content.Intent
 import android.net.Uri
@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.binarchallange3.databinding.ItemViewBinding
 
 class WordAdapter(private val list: Array<String>): RecyclerView.Adapter<WordAdapter.CardViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordAdapter.CardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CardViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: WordAdapter.CardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         holder.bind(list)
         holder.itemView.setOnClickListener {
             val uri = Uri.parse("https://www.google.com/search?q=${list[position]}")

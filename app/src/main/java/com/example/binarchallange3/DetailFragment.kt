@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.binarchallange3.adapter.AlphabetAdapter
+import com.example.binarchallange3.adapter.WordAdapter
 import com.example.binarchallange3.databinding.FragmentDetailBinding
-import com.example.binarchallange3.utils.OnItemClickCallback
 
 class DetailFragment : Fragment() {
 

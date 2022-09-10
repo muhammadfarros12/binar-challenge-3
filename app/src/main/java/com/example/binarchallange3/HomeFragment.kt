@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.binarchallange3.adapter.AlphabetAdapter
 import com.example.binarchallange3.databinding.FragmentHomeBinding
-import com.example.binarchallange3.utils.OnItemClickCallback
+import com.example.binarchallange3.model.list
 
 
 class HomeFragment : Fragment() {

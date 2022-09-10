@@ -1,4 +1,4 @@
-package com.example.binarchallange3
+package com.example.binarchallange3.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
