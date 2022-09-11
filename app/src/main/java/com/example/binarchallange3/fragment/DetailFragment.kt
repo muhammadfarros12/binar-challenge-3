@@ -2,12 +2,9 @@ package com.example.binarchallange3.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.binarchallange3.adapter.WordAdapter
 import com.example.binarchallange3.databinding.FragmentDetailBinding
@@ -28,7 +25,6 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
         val mData = DetailFragmentArgs.fromBundle(arguments as Bundle).name

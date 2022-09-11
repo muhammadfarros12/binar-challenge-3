@@ -10,9 +10,7 @@ import com.example.binarchallange3.utils.OnItemClickCallback
 class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
     RecyclerView.Adapter<AlphabetAdapter.CardViewHolder>() {
 
-
     var onItemClicked: OnItemClickCallback? = null
-
 
     class CardViewHolder(private val binding: ItemViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
