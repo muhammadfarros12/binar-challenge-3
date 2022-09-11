@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.binarchallange3.HomeFragment"
+        android:name="com.example.binarchallange3.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,11 +16,14 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.binarchallange3.DetailFragment"
+        android:name="com.example.binarchallange3.fragment.DetailFragment"
         android:label="Detail"
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="name"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

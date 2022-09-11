@@ -1,13 +1,15 @@
-package com.example.binarchallange3
+package com.example.binarchallange3.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.binarchallange3.adapter.AlphabetAdapter
 import com.example.binarchallange3.databinding.FragmentHomeBinding
+import com.example.binarchallange3.list
 import com.example.binarchallange3.utils.OnItemClickCallback
 
 
@@ -22,6 +24,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         return binding.root
 
     }
@@ -34,7 +37,7 @@ class HomeFragment : Fragment() {
 
             val mAdapter = AlphabetAdapter(list)
             adapter = mAdapter
-            mAdapter.setOnClickCallback(object :OnItemClickCallback{
+            mAdapter.setOnClickCallback(object : OnItemClickCallback {
                 override fun onItemClicked(list: Array<String>) {
                     val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(list)
                     view.findNavController().navigate(action)
