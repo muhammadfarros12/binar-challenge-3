@@ -1,12 +1,12 @@
 package com.example.binarchallange3
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.binarchallange3.adapter.AlphabetAdapter
 import com.example.binarchallange3.adapter.WordAdapter
 import com.example.binarchallange3.databinding.FragmentDetailBinding
 
@@ -21,16 +21,16 @@ class DetailFragment(private val list: ArrayList<String>) : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
-        setHasOptionsMenu(true)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val data = arguments?.getStringArrayList(AlphabetAdapter.EXTRA_ALPHABET)
-
-        ///val mData = DetailFragmentArgs.fromBundle(arguments as Bundle).name
+        (activity as AppCompatActivity?)!!.supportActionBar!!.title = "Detail"
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayShowHomeEnabled(true)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         binding.rcvWords.apply {
             adapter = WordAdapter(list)
@@ -39,8 +39,11 @@ class DetailFragment(private val list: ArrayList<String>) : Fragment() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 

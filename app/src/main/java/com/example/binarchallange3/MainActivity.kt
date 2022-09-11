@@ -1,8 +1,8 @@
 package com.example.binarchallange3
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.binarchallange3.databinding.ActivityMainBinding
 
@@ -16,17 +16,24 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentContainerView, HomeFragment()).commit()
+            replace(R.id.fragmentContainerView, HomeFragment())
+                .commit()
         }
-
         setContentView(binding.root)
     }
 
-    fun setWordFragment(fragment: Fragment){
+    fun setWordFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentContainerView, fragment).commit()
-            addToBackStack(null)
+            replace(R.id.fragmentContainerView, fragment)
+                .addToBackStack(null)
+                .commit()
+
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onDestroy() {

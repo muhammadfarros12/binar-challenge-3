@@ -1,23 +1,15 @@
 package com.example.binarchallange3.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binarchallange3.DetailFragment
 import com.example.binarchallange3.MainActivity
-import com.example.binarchallange3.R
 import com.example.binarchallange3.databinding.ItemViewBinding
 import com.example.binarchallange3.model.AlphabetModel
-import com.example.binarchallange3.utils.OnItemClickCallback
 
 class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
     RecyclerView.Adapter<AlphabetAdapter.CardViewHolder>() {
-
-
-    var onItemClicked: OnItemClickCallback? = null
-
 
     class CardViewHolder(private val binding: ItemViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -42,10 +34,6 @@ class AlphabetAdapter(private val list: ArrayList<AlphabetModel>) :
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         // onItemClicked?.let { holder.bind(list[position], it) }
         holder.bind(list[position])
-    }
-
-    fun setOnClickCallback(onItemClicked: OnItemClickCallback){
-        this.onItemClicked = onItemClicked
     }
 
 

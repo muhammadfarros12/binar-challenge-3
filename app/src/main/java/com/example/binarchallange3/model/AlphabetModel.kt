@@ -1,14 +1,11 @@
 package com.example.binarchallange3.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class AlphabetModel(
-    val alphabet:String,
+    val alphabet: String,
     val word: ArrayList<String>,
 
-): Parcelable
+    )
 
 val list = arrayListOf(
     AlphabetModel("A", arrayListOf("apple", "apa", "appa")),

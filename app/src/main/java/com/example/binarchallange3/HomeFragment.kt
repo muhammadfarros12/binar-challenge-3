@@ -1,10 +1,11 @@
 package com.example.binarchallange3
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.binarchallange3.adapter.AlphabetAdapter
 import com.example.binarchallange3.databinding.FragmentHomeBinding
@@ -22,6 +23,9 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
         return binding.root
 
     }
@@ -29,25 +33,26 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity?)!!.supportActionBar!!.title = "Home"
+
         binding.rcvAlphabet.apply {
             layoutManager = LinearLayoutManager(activity)
 
             adapter = AlphabetAdapter(list)
-//            mAdapter.setOnClickCallback(object :OnItemClickCallback{
-//                override fun onItemClicked(list: Array<String>) {
-//                    val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(list)
-//                    view.findNavController().navigate(action)
-//                }
-//
-//
-//            })
 
         }
 
+
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
+
     }
 }
